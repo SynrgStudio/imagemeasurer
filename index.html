@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ImageMeasurer OSS: measure distances on any image from one known reference length."
+    />
+    <title>ImageMeasurer OSS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="dark">
+    <div class="bg-shape bg-shape-a" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-b" aria-hidden="true"></div>
+
+    <header class="app-header">
+      <h1>ImageMeasurer OSS</h1>
+      <p>
+        Upload an image, set one known length, then draw as many lines as you
+        want.
+      </p>
+      <p class="privacy">No backend. No cookies. No tracking. Fully local.</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel controls" aria-label="Controls">
+        <label class="file-input">
+          <span>1) Choose image</span>
+          <input id="imageInput" type="file" accept="image/*" />
+        </label>
+
+        <div class="control-group">
+          <label for="knownLength">2) Known length</label>
+          <div class="inline-row">
+            <input
+              id="knownLength"
+              type="number"
+              min="0"
+              step="any"
+              placeholder="Ex: 25"
+              aria-label="Known length value"
+            />
+            <input
+              id="unitInput"
+              type="text"
+              maxlength="12"
+              placeholder="cm"
+              aria-label="Unit"
+              value="cm"
+            />
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button id="applyKnownBtn" disabled>Apply known length</button>
+          <button id="undoBtn" disabled>Undo</button>
+          <button id="clearBtn" disabled>Clear all</button>
+        </div>
+
+        <div class="toggle-grid">
+          <label class="toggle-item" for="magnifierToggle">
+            <input id="magnifierToggle" type="checkbox" />
+            <span>Drag magnifier (while drawing)</span>
+          </label>
+          <label class="toggle-item" for="themeToggle">
+            <input id="themeToggle" type="checkbox" />
+            <span>Light mode</span>
+          </label>
+        </div>
+
+        <div class="buttons buttons-inline">
+          <button id="exportCsvBtn" disabled>Export CSV</button>
+          <button id="exportTxtBtn" disabled>Export TXT</button>
+        </div>
+
+        <div id="status" class="status" role="status" aria-live="polite">
+          Load an image to start.
+        </div>
+
+        <div class="tips">
+          <h2>Quick tips</h2>
+          <ul>
+            <li>Click and drag to draw a line.</li>
+            <li>First line after apply is the reference line.</li>
+            <li>Hover lines to reveal draggable handles.</li>
+            <li>Double click any line to remove it.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel workspace" aria-label="Measurement area">
+        <div id="canvasWrap" class="canvas-wrap">
+          <img id="photo" alt="Image for measurement" hidden />
+          <svg id="overlay" hidden></svg>
+          <div id="loupe" class="loupe" hidden></div>
+          <div id="emptyState" class="empty-state">
+            <p>Waiting for image...</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel results" aria-label="Results">
+        <h2>Measurements</h2>
+        <ol id="measureList"></ol>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <small>Open-source GitHub Pages app. Processing is browser-only.</small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
