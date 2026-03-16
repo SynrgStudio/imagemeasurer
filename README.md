@@ -27,15 +27,6 @@ Open-source static web app to measure distances on an image from one known refer
 6. Hover lines to reveal handles and adjust endpoints if needed.
 7. Export results with `Export CSV` or `Export TXT`.
 
-## Deploy to GitHub Pages
-
-1. Push these files to a GitHub repository.
-2. Go to `Settings > Pages`.
-3. Under `Build and deployment`, choose:
-   - `Source: Deploy from a branch`
-   - `Branch: main (root)`
-4. Save and wait for the public URL.
-
 ## Local development
 
 You can open `index.html` directly, or run a tiny local server.
