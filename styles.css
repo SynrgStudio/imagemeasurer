@@ -185,8 +185,30 @@ input[type="text"] {
   grid-template-columns: 1fr;
 }
 
-.buttons-inline {
+.button-pair {
+  display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+}
+
+.buttons-inline {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.unit-presets {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.unit-preset {
+  padding: 0.42rem 0.35rem;
+  font-size: 0.84rem;
+}
+
+.unit-preset.active {
+  background: var(--brand);
+  color: #0d1b16;
 }
 
 .toggle-grid {
@@ -378,6 +400,12 @@ body[data-theme="light"] .canvas-wrap {
   stroke: #0a1424;
   stroke-width: 2;
   cursor: grab;
+}
+
+.line-handle.selected {
+  fill: #ffcf6d;
+  stroke: #0d1420;
+  stroke-width: 2.2;
 }
 
 body[data-theme="light"] .line-handle {

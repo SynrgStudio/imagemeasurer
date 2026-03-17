@@ -54,14 +54,33 @@
 
         <div class="buttons">
           <button id="applyKnownBtn" disabled>Apply known length</button>
-          <button id="undoBtn" disabled>Undo</button>
+          <div class="button-pair">
+            <button id="undoBtn" disabled>Undo</button>
+            <button id="redoBtn" disabled>Redo</button>
+          </div>
           <button id="clearBtn" disabled>Clear all</button>
+        </div>
+
+        <div class="unit-presets" aria-label="Unit presets">
+          <button class="unit-preset" data-unit="mm" type="button">mm</button>
+          <button class="unit-preset" data-unit="cm" type="button">cm</button>
+          <button class="unit-preset" data-unit="m" type="button">m</button>
+          <button class="unit-preset" data-unit="in" type="button">in</button>
+          <button class="unit-preset" data-unit="ft" type="button">ft</button>
         </div>
 
         <div class="toggle-grid">
           <label class="toggle-item" for="magnifierToggle">
             <input id="magnifierToggle" type="checkbox" />
             <span>Drag magnifier (while drawing)</span>
+          </label>
+          <label class="toggle-item" for="lockReferenceToggle">
+            <input id="lockReferenceToggle" type="checkbox" />
+            <span>Lock known measure</span>
+          </label>
+          <label class="toggle-item" for="polylineToggle">
+            <input id="polylineToggle" type="checkbox" />
+            <span>Polyline accumulate mode</span>
           </label>
           <label class="toggle-item" for="themeToggle">
             <input id="themeToggle" type="checkbox" />
@@ -72,6 +91,7 @@
         <div class="buttons buttons-inline">
           <button id="exportCsvBtn" disabled>Export CSV</button>
           <button id="exportTxtBtn" disabled>Export TXT</button>
+          <button id="exportPngBtn" disabled>Export PNG</button>
         </div>
 
         <div id="status" class="status" role="status" aria-live="polite">
@@ -79,12 +99,18 @@
         </div>
 
         <div class="tips">
-          <h2>Quick tips</h2>
+          <h2>Tutorial</h2>
           <ul>
-            <li>Click and drag to draw a line.</li>
-            <li>First line after apply is the reference line.</li>
-            <li>Hover lines to reveal draggable handles.</li>
-            <li>Double click any line to remove it.</li>
+            <li>1) Upload your image.</li>
+            <li>2) Enter the known value and unit (example: 4.5 cm).</li>
+            <li>3) Click Apply known length.</li>
+            <li>4) Draw your first line on the known segment (reference).</li>
+            <li>5) Draw more lines to measure other segments.</li>
+            <li>6) Hover a line to edit it with draggable handles.</li>
+            <li>7) Click a handle once to select it and fine-tune with arrow keys.</li>
+            <li>8) Hold Shift + arrows to move 10 px per step.</li>
+            <li>9) Double click any line to remove it.</li>
+            <li>10) Export your results as CSV, TXT or PNG.</li>
           </ul>
         </div>
       </section>
